@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+// Core
+// ------------------------------------------------------
+@import "scss/root";
+@import "scss/variables";
+@import "scss/fonts";
+
+// Scaffolding
+// ------------------------------------------------------
+@import "scss/base";
