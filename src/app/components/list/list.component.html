@@ -1,0 +1,18 @@
+<section class="list">
+  <ng-container *ngFor="let item of items; index as i">
+    <article class="list__item">
+      <p>id: {{ item.id }}</p>
+      <p>categoría: {{ item.category }}</p>
+      <p>comentario: {{ item.comment }}</p>
+      <p>fecha: {{ item.date }}</p>
+      <p>lugar: {{ item.location }}</p>
+      <p>persona: {{ item.person }}</p>
+    </article>
+  </ng-container>
+</section>
+
+          <!-- <div class="col col-md-2 image-col">
+            <img class="image" [src]="item.payload.doc.data().avatar">
+            <h5 class="mb-1">{{item.payload.doc.data().name}} {{item.payload.doc.data().surname}}</h5>
+            <small>Age: {{item.payload.doc.data().age}}</small>
+          </div> -->
