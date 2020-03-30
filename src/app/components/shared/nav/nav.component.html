@@ -1,1 +1,17 @@
-<p>nav works!</p>
+<a routerLink="/">
+  #búhos
+</a>
+
+<nav class="nav">
+  <ul class="nav__list">
+    <li *ngFor="let menuItem of menu; index as i" class="nav__item">
+      <a
+        [routerLink]="menuItem.link"
+        routerLinkActive="is-active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="nav__item__link"
+        >{{ menuItem.text }}</a
+      >
+    </li>
+  </ul>
+</nav>

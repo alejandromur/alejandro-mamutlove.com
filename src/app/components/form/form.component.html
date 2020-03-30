@@ -1,0 +1,31 @@
+<form [formGroup]="form" class="form" (ngSubmit)="onSubmit($event)" novalidate>
+  <div class="form__control">
+    <label for="id">Número de la colección</label>
+    <input formControlName="id" type="number" id="id" readonly />
+  </div>
+  <div class="form__control">
+    <label for="person">Persona</label>
+    <input formControlName="person" type="text" id="person" />
+  </div>
+  <div class="form__control">
+    <label for="date">Fecha</label>
+    <input formControlName="date" type="date" id="date" />
+  </div>
+  <div class="form__control">
+    <label for="location">Lugar</label>
+    <input formControlName="location" type="text" id="location" />
+  </div>
+  <div class="form__control">
+    <label for="category">Categoría</label>
+    <input formControlName="category" type="text" id="category" />
+  </div>
+  <div class="form__control">
+    <label for="comment">Comentario</label>
+    <textarea formControlName="comment" id="comment"></textarea>
+  </div>
+  <div class="form__control">
+    <button [disabled]="!form.valid">
+      Guardar
+    </button>
+  </div>
+</form>
