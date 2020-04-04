@@ -4,34 +4,31 @@ import { ListComponent } from "./components/list/list.component";
 import { SearchComponent } from "./components/search/search.component";
 import { FormComponent } from "./components/form/form.component";
 import { OwlComponent } from "./components/shared/owl/owl.component";
+import { DetailsComponent } from "./components/details/details.component";
 
 const routes: Routes = [
   {
     path: "listado",
-    component: ListComponent
+    component: ListComponent,
   },
   {
     path: "buscar",
-    component: SearchComponent
+    component: SearchComponent,
   },
   {
     path: "nuevo",
-    component: FormComponent
+    component: FormComponent,
   },
   {
     path: "detalle/:id",
-    component: OwlComponent
-    // children: [
-    //   { path: "entrada", component: EntryComponent },
-    //   { path: "tarea", component: TaskComponent }
-    // ]
+    component: DetailsComponent,
   },
   { path: "", redirectTo: "/listado", pathMatch: "full" },
-  { path: "**", redirectTo: "/listado" }
+  { path: "**", redirectTo: "/listado" },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

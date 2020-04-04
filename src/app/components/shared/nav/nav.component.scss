@@ -1,47 +1,48 @@
 @import "variables";
 
 :host {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  padding: 1rem;
-  background-color: var(--primary-color);
-  border-bottom: 2px solid var(--primary-darken-color);
-  position: fixed;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	padding: 1rem;
+	background-color: var(--primary-color);
+	border-bottom: 2px solid var(--primary-darken-color);
+	position: fixed;
+	z-index: 1;
 }
 
 a {
-  color: $white-color;
-  text-decoration: none;
-  transition: all 250ms;
+	color: $white-color;
+	text-decoration: none;
+	transition: all 250ms;
 }
 
 .nav {
-  margin-left: auto;
+	margin-left: auto;
 
-  &__list {
-    display: flex;
-  }
+	&__list {
+		display: flex;
+	}
 
-  &__item {
-    padding: 0 0.5rem;
+	&__item {
+		padding: 0 0.5rem;
 
-    &__link {
-      display: block;
-      padding: 0 0.5rem;
-      font-size: 1.125rem;
-      border-radius: 0.25rem;
+		&__link {
+			display: block;
+			padding: 0 0.5rem;
+			font-size: 1.125rem;
+			border-radius: 0.25rem;
 
-      &:hover {
-        color: var(--primary-color);
-        background-color: $white-color;
-      }
+			&:hover {
+				color: var(--primary-color);
+				background-color: $white-color;
+			}
 
-      // STATES
-      &.is-active {
-        color: var(--primary-color);
-        background-color: $white-color;
-      }
-    }
-  }
+			// STATES
+			&.is-active {
+				color: var(--primary-color);
+				background-color: $white-color;
+			}
+		}
+	}
 }

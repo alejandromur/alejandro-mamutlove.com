@@ -1,18 +1,14 @@
 <section class="list">
   <ng-container *ngFor="let item of items; index as i">
     <article class="list__item">
-      <p>id: {{ item.id }}</p>
-      <p>categoría: {{ item.category }}</p>
-      <p>comentario: {{ item.comment }}</p>
-      <p>fecha: {{ item.date }}</p>
-      <p>lugar: {{ item.location }}</p>
-      <p>persona: {{ item.person }}</p>
+      <a class="item" [routerLink]="['/detalle', item.id]">
+        <img class="item__image" src="https://picsum.photos/400/300">
+        <div class="item__content">
+          <p class="item__heading">#{{ item.id }}</p>
+          <p class="item__subheading">{{ item.person }}</p>
+          <p class="item__text">{{ item.location }}</p>
+        </div>
+      </a>
     </article>
   </ng-container>
 </section>
-
-          <!-- <div class="col col-md-2 image-col">
-            <img class="image" [src]="item.payload.doc.data().avatar">
-            <h5 class="mb-1">{{item.payload.doc.data().name}} {{item.payload.doc.data().surname}}</h5>
-            <small>Age: {{item.payload.doc.data().age}}</small>
-          </div> -->

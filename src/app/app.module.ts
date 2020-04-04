@@ -17,6 +17,7 @@ import { OwlComponent } from "./components/shared/owl/owl.component";
 import { ListComponent } from "./components/list/list.component";
 import { SearchComponent } from "./components/search/search.component";
 import { FormComponent } from "./components/form/form.component";
+import { DetailsComponent } from "./components/details/details.component";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FormComponent } from "./components/form/form.component";
     OwlComponent,
     ListComponent,
     SearchComponent,
-    FormComponent
+    FormComponent,
+    DetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,9 +35,9 @@ import { FormComponent } from "./components/form/form.component";
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireStorageModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [AngularFirestore],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
