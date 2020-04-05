@@ -2,7 +2,6 @@ import { Injectable } from "@angular/core";
 import { AngularFirestore } from "@angular/fire/firestore";
 import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
 import { OwlInterface } from "../types/owl-interface";
-import { map } from "rxjs/operators";
 
 @Injectable({
   providedIn: "root",
@@ -15,15 +14,7 @@ export class FirebaseService {
     public db: AngularFirestore
   ) {}
 
-  getOwls() {
-    return this.firebase.list("owls").snapshotChanges();
-  }
-
-  getOwl(owlKey: string) {
-    return this.firebase.object("owls/" + owlKey);
-  }
-
-  createOwl(value: any) {
+  create(value: any) {
     return this.firebase.list("owls").push({
       id: value.id,
       person: value.person,
@@ -32,5 +23,21 @@ export class FirebaseService {
       category: value.category,
       comment: value.comment,
     } as OwlInterface);
+  }
+
+  getList() {
+    // const key = "-M4B62uU_K9DNFexCSAF";
+    // return this.firebase.list("owls" + key);
+    return this.firebase
+      .list("owls", (ref) => ref.orderByChild("id"))
+      .snapshotChanges();
+  }
+
+  getItem(key: string) {
+    return this.firebase.object("owls/" + key);
+  }
+
+  delete(key: string) {
+    return this.firebase.object("owls/" + key).remove();
   }
 }

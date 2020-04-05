@@ -21,7 +21,7 @@ export class ListComponent implements OnInit {
   }
 
   getData(): void {
-    this.firebaseService.getOwls().subscribe((result) => {
+    this.firebaseService.getList().subscribe((result) => {
       this.items = result.map((c: any) => ({
         key: c.payload.key,
         ...c.payload.val(),

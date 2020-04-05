@@ -5,7 +5,7 @@ import { OwlInterface } from "src/app/types/owl-interface";
 @Component({
   selector: "app-search",
   templateUrl: "./search.component.html",
-  styleUrls: ["./search.component.scss"]
+  styleUrls: ["./search.component.scss"],
 })
 export class SearchComponent implements OnInit {
   items: any;
@@ -17,10 +17,10 @@ export class SearchComponent implements OnInit {
   }
 
   getData() {
-    this.firebaseService.getOwls().subscribe(result => {
+    this.firebaseService.getList().subscribe((result) => {
       this.items = result.map((c: any) => ({
         key: c.payload.key,
-        ...c.payload.val()
+        ...c.payload.val(),
       }));
     });
   }

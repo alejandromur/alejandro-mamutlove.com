@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { FirebaseService } from "src/app/services/firebase.service";
-import { Subscription, Observable } from "rxjs";
 import { IdsService } from "src/app/services/ids.service";
+import { IdsInterface } from "src/app/models/ids";
 
 @Component({
   selector: "app-details",
@@ -11,8 +11,10 @@ import { IdsService } from "src/app/services/ids.service";
 })
 export class DetailsComponent implements OnInit {
   owl: any;
+  dict: IdsInterface;
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     public firebaseService: FirebaseService,
     public idsService: IdsService
@@ -21,15 +23,21 @@ export class DetailsComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe((params) => {
       const id = params["id"];
-      const dict = this.idsService.getKey(id);
+      this.dict = this.idsService.getKey(id);
       this.firebaseService
-        .getOwl(dict[0].key)
+        .getItem(this.dict[0].key)
         .valueChanges()
         .subscribe((data) => {
           console.log(data);
-
           this.owl = data;
         });
     });
+  }
+
+  edit(key: string) {}
+
+  delete(key: string) {
+    this.firebaseService.delete(this.dict[0].key);
+    this.router.navigate(["/listado"]);
   }
 }

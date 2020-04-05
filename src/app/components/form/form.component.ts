@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { FirebaseService } from "../../services/firebase.service";
-import { Router } from "@angular/router";
 import { IdsService } from "src/app/services/ids.service";
 
 @Component({
@@ -13,7 +12,6 @@ export class FormComponent implements OnInit {
   form: FormGroup;
 
   constructor(
-    private router: Router,
     public firebaseService: FirebaseService,
     public idsService: IdsService
   ) {}
@@ -41,7 +39,7 @@ export class FormComponent implements OnInit {
 
   onSubmit(event: any) {
     console.warn(this.form.value);
-    this.firebaseService.createOwl(this.form.value).then((res) => {
+    this.firebaseService.create(this.form.value).then((res) => {
       this.resetForm();
     });
   }
