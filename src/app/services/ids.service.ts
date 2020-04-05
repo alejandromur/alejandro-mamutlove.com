@@ -17,6 +17,10 @@ export class IdsService {
     return this.dictionary.filter((item: IdsInterface) => item.id === n);
   }
 
+  getLastIndex() {
+    return this.dictionary[this.dictionary.length - 1].id + 1;
+  }
+
   save(dictionary: any): void {
     this.dictionary = dictionary;
     console.log(this.dictionary);
