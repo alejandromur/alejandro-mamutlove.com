@@ -26,17 +26,10 @@ export class ListComponent implements OnInit {
         key: c.payload.key,
         ...c.payload.val(),
       }));
-      this.saveDictionary(this.items);
     });
   }
 
-  saveDictionary(obj: any): void {
-    console.log(obj);
-    this.dictionary = obj.map((item) => {
-      console.log(item);
-      return { key: item.key, id: item.id };
-    });
-    console.log(this.dictionary);
-    this.idsService.save(this.dictionary);
+  onGetDetails(owl: any) {
+    this.firebaseService.selectedOwl = Object.assign({}, owl);
   }
 }

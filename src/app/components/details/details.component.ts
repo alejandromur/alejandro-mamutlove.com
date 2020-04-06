@@ -1,9 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute, Router } from "@angular/router";
+import { Router } from "@angular/router";
 import { FirebaseService } from "src/app/services/firebase.service";
-import { IdsService } from "src/app/services/ids.service";
-import { IdsInterface } from "src/app/models/ids";
-import { OwlInterface } from "../../types/owl-interface";
 
 @Component({
   selector: "app-details",
@@ -12,37 +9,18 @@ import { OwlInterface } from "../../types/owl-interface";
 })
 export class DetailsComponent implements OnInit {
   owl: any;
-  key: string;
-  id: number;
-  dict: IdsInterface;
 
   constructor(
     private router: Router,
-    private route: ActivatedRoute,
-    public firebaseService: FirebaseService,
-    public idsService: IdsService
+    public firebaseService: FirebaseService
   ) {}
 
   ngOnInit() {
-    this.route.params.subscribe((params) => {
-      const id = params["id"];
-      this.dict = this.idsService.getKey(id);
-      this.key = this.dict[0].key;
-      this.id = this.dict[0].id;
-      this.firebaseService
-        .getItem(this.key)
-        .valueChanges()
-        .subscribe((data) => {
-          console.log(data);
-          this.owl = data;
-          this.firebaseService.selectedOwl = Object.assign({}, this.owl);
-          console.log(this.firebaseService.selectedOwl);
-        });
-    });
+    this.owl = this.firebaseService.getSelectedOwl();
   }
 
-  delete(key: string) {
-    this.firebaseService.delete(this.key);
+  onDelete(key: string) {
+    this.firebaseService.delete(key);
     this.router.navigate(["/listado"]);
   }
 }

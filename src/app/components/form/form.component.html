@@ -1,4 +1,5 @@
 <form [formGroup]="form" class="form" (ngSubmit)="onSubmit($event)" novalidate>
+  <input formControlName="key" type="hidden" />
   <div class="form__control">
     <label for="id">Número de la colección</label>
     <input formControlName="id" type="number" id="id" />

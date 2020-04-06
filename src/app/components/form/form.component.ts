@@ -38,6 +38,7 @@ export class FormComponent implements OnInit {
     if (data.action === "edit") {
       console.log("edit");
       this.form = new FormGroup({
+        key: new FormControl(this.firebaseService.selectedOwl.key),
         id: new FormControl(
           this.firebaseService.selectedOwl.id,
           Validators.required
@@ -66,6 +67,7 @@ export class FormComponent implements OnInit {
     } else if (data.action === "new") {
       const idx = this.idsService.getLastIndex();
       this.form = new FormGroup({
+        key: new FormControl(null),
         id: new FormControl(idx, Validators.required),
         person: new FormControl("", Validators.required),
         date: new FormControl("", Validators.required),

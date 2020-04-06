@@ -31,8 +31,6 @@ export class FirebaseService {
   }
 
   getList() {
-    // const key = "-M4B62uU_K9DNFexCSAF";
-    // return this.firebase.list("owls" + key);
     return this.firebase
       .list("owls", (ref) => ref.orderByChild("id"))
       .snapshotChanges();
@@ -42,9 +40,8 @@ export class FirebaseService {
     return this.firebase.object("owls/" + key);
   }
 
-  // TODO:
   edit(item: any) {
-    return this.firebase.list("owls").update("-M4GQ6LLszK5JPeNus-g", item);
+    return this.firebase.list("owls").update(item.key, item);
   }
 
   delete(key: string) {
