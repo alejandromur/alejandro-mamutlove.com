@@ -8,6 +8,7 @@ import { OwlInterface } from "../types/owl-interface";
 })
 export class FirebaseService {
   owlsList: AngularFireList<any>;
+  selectedOwl: OwlInterface = new OwlInterface();
 
   constructor(
     private firebase: AngularFireDatabase,
@@ -25,6 +26,10 @@ export class FirebaseService {
     } as OwlInterface);
   }
 
+  getSelectedOwl() {
+    return this.selectedOwl;
+  }
+
   getList() {
     // const key = "-M4B62uU_K9DNFexCSAF";
     // return this.firebase.list("owls" + key);
@@ -35,6 +40,11 @@ export class FirebaseService {
 
   getItem(key: string) {
     return this.firebase.object("owls/" + key);
+  }
+
+  // TODO:
+  edit(item: any) {
+    return this.firebase.list("owls").update("-M4GQ6LLszK5JPeNus-g", item);
   }
 
   delete(key: string) {

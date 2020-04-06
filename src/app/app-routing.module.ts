@@ -18,10 +18,16 @@ const routes: Routes = [
   {
     path: "nuevo",
     component: FormComponent,
+    data: { action: "new" },
   },
   {
     path: "detalle/:id",
     component: DetailsComponent,
+  },
+  {
+    path: "editar/:id",
+    component: FormComponent,
+    data: { action: "edit" },
   },
   { path: "", redirectTo: "/listado", pathMatch: "full" },
   { path: "**", redirectTo: "/listado" },

@@ -1,4 +1,4 @@
-export interface OwlInterface {
+export class OwlInterface {
   id: number;
   person: string;
   location: string;

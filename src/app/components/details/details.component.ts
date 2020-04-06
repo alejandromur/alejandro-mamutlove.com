@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { FirebaseService } from "src/app/services/firebase.service";
 import { IdsService } from "src/app/services/ids.service";
 import { IdsInterface } from "src/app/models/ids";
+import { OwlInterface } from "../../types/owl-interface";
 
 @Component({
   selector: "app-details",
@@ -11,6 +12,8 @@ import { IdsInterface } from "src/app/models/ids";
 })
 export class DetailsComponent implements OnInit {
   owl: any;
+  key: string;
+  id: number;
   dict: IdsInterface;
 
   constructor(
@@ -24,20 +27,22 @@ export class DetailsComponent implements OnInit {
     this.route.params.subscribe((params) => {
       const id = params["id"];
       this.dict = this.idsService.getKey(id);
+      this.key = this.dict[0].key;
+      this.id = this.dict[0].id;
       this.firebaseService
-        .getItem(this.dict[0].key)
+        .getItem(this.key)
         .valueChanges()
         .subscribe((data) => {
           console.log(data);
           this.owl = data;
+          this.firebaseService.selectedOwl = Object.assign({}, this.owl);
+          console.log(this.firebaseService.selectedOwl);
         });
     });
   }
 
-  edit(key: string) {}
-
   delete(key: string) {
-    this.firebaseService.delete(this.dict[0].key);
+    this.firebaseService.delete(this.key);
     this.router.navigate(["/listado"]);
   }
 }

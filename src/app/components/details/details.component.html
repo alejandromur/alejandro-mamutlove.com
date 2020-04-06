@@ -7,6 +7,7 @@
 <h1>{{ owl?.comment }}</h1>
 <h1>{{ owl?.date }}</h1>
 <h1>{{ owl?.location }}</h1>
+<a [routerLink]="['/editar', id]">editar</a>
 <button (click)="delete(owl?.key)">borrar</button>
 
 
