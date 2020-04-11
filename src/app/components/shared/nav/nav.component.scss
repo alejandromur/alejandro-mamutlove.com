@@ -30,11 +30,15 @@ a {
 		&__link {
 			display: flex;
 			align-items: center;
-			padding: 1.25rem 0.5rem;
+			padding: 1.25rem 0;
 			font-size: 1.125rem;
 			border-radius: 0.25rem;
 			position: relative;
 			color: rgba($white-color, 0.7);
+
+			@media (min-width: $mobile) {
+				padding: 1.25rem 0.5rem;
+			}
 
 			&::before {
 				content: "";
@@ -48,9 +52,15 @@ a {
 				transition: all 250ms;
 			}
 
-			&:hover {
-				// color: rgba($white-color, 0.7);
+			span {
+				display: none;
 
+				@media (min-width: $tablet) {
+					display: block;
+				}
+			}
+
+			&:hover {
 				&::before {
 					background-color: rgba($white-color, 0.7);
 				}
@@ -69,7 +79,10 @@ a {
 		&__icon {
 			width: 1.5rem;
 			height: 1.5rem;
-			margin-right: 0.5rem;
+
+			@media (min-width: $tablet) {
+				margin-right: 0.5rem;
+			}
 		}
 	}
 }

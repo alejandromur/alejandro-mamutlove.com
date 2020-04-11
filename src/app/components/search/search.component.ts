@@ -65,7 +65,7 @@ export class SearchComponent implements OnInit, AfterViewInit {
         debounceTime(200),
         distinctUntilChanged(),
         tap((event: KeyboardEvent) => {
-          let query: any = this.input.nativeElement.value;
+          const query: any = this.input.nativeElement.value;
           const channel = this.searchForm.get("filter").value;
           console.log(channel, query);
 
