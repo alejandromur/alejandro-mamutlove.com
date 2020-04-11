@@ -21,12 +21,15 @@ export class ListComponent implements OnInit {
   }
 
   getData(): void {
-    this.firebaseService.getList().subscribe((result) => {
-      this.items = result.map((c: any) => ({
-        key: c.payload.key,
-        ...c.payload.val(),
-      }));
-    });
+    this.firebaseService
+      .getList()
+      .snapshotChanges()
+      .subscribe((result) => {
+        this.items = result.reverse().map((c: any) => ({
+          key: c.payload.key,
+          ...c.payload.val(),
+        }));
+      });
   }
 
   onGetDetails(owl: any) {

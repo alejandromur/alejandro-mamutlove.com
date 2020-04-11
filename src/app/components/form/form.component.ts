@@ -33,10 +33,9 @@ export class FormComponent implements OnInit {
   }
 
   initForm(data: any): void {
-    console.log(this.firebaseService.getSelectedOwl());
-    console.log(this.firebaseService.selectedOwl);
+    // console.log(this.firebaseService.getSelectedOwl());
+    // console.log(this.firebaseService.selectedOwl);
     if (data.action === "edit") {
-      console.log("edit");
       this.form = new FormGroup({
         key: new FormControl(this.firebaseService.selectedOwl.key),
         id: new FormControl(
@@ -65,10 +64,9 @@ export class FormComponent implements OnInit {
         ),
       });
     } else if (data.action === "new") {
-      const idx = this.idsService.getLastIndex();
       this.form = new FormGroup({
         key: new FormControl(null),
-        id: new FormControl(idx, Validators.required),
+        id: new FormControl("", Validators.required),
         person: new FormControl("", Validators.required),
         date: new FormControl("", Validators.required),
         location: new FormControl("", Validators.required),

@@ -1,13 +1,12 @@
 <!-- <pre>
   {{ owl | json }}
 </pre> -->
-<h1>{{ owl.key }}</h1>
-<h1>{{ owl.id }}</h1>
-<h1>{{ owl.person }}</h1>
-<h1>{{ owl.category }}</h1>
-<h1>{{ owl.comment }}</h1>
-<h1>{{ owl.date }}</h1>
-<h1>{{ owl.location }}</h1>
+<p>{{ owl.id }}</p>
+<p>{{ owl.person }}</p>
+<p>{{ owl.category }}</p>
+<p>{{ owl.comment }}</p>
+<p>{{ owl.date }}</p>
+<p>{{ owl.location }}</p>
 <a [routerLink]="['/editar', id]">editar</a>
 <button (click)="onDelete(owl.key)">borrar</button>
 

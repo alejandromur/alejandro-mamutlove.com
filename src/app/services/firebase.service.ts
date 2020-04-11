@@ -31,16 +31,14 @@ export class FirebaseService {
   }
 
   getList() {
-    return this.firebase
-      .list("owls", (ref) => ref.orderByChild("id"))
-      .snapshotChanges();
+    return this.firebase.list("owls", (ref) => ref.orderByChild("id"));
   }
 
   getItem(key: string) {
     return this.firebase.object("owls/" + key);
   }
 
-  edit(item: any) {
+  edit(item: OwlInterface) {
     return this.firebase.list("owls").update(item.key, item);
   }
 

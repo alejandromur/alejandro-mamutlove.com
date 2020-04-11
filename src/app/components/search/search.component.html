@@ -1,3 +1,42 @@
+<form class="form" [formGroup]="searchForm" novalidate>
+  <fieldset>
+    <legend>Buscar por:</legend>
+    <section class="filters">
+      <div class="filter">
+        <input type="radio" name="filter" formControlName="filter" id="id" value="id">
+        <label for="id">Número de la colección</label>
+      </div>
+      <div class="filter">
+        <input type="radio" name="filter" formControlName="filter" id="person" value="person">
+        <label for="person">Persona</label>
+      </div>
+      <div class="filter">
+        <input type="radio" name="filter" formControlName="filter" id="category" value="category">
+        <label for="category">Categoría</label>
+      </div>
+      <div class="filter">
+        <input type="radio" name="filter" formControlName="filter" id="date" value="date">
+        <label for="date">Año</label>
+      </div>
+      <div class="filter">
+        <input type="radio" name="filter" formControlName="filter" id="location" value="location">
+        <label for="location">Ubicación</label>
+      </div>
+      <div class="filter">
+        <input type="radio" name="filter" formControlName="filter" id="comment" value="comment">
+        <label for="comment">Comentario</label>
+      </div>
+    </section>
+  </fieldset>
+  <input formControlName="queryField" type="search" #input>
+</form>
+<!-- <label>
+  Buscar búho por<br />
+<input type="search" #input>
+</label> -->
+
+<hr>
+
 <section class="list">
   <ng-container *ngFor="let item of items; index as i">
     <article class="list__item">
