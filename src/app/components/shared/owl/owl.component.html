@@ -1,1 +1,10 @@
-<p>owl works!</p>
+<article class="list__item">
+  <a class="item" [routerLink]="['/detalle', item.id]" (click)="onGetDetails(item)">
+    <img class="item__image" src="https://picsum.photos/400/300">
+    <div class="item__content">
+      <p class="item__heading">#{{ item.id }}</p>
+      <p class="item__subheading">{{ item.person }}</p>
+      <p class="item__text">{{ item.location }}</p>
+    </div>
+  </a>
+</article>
