@@ -30,22 +30,10 @@
   </fieldset>
   <input formControlName="queryField" type="search" #input>
 </form>
-<!-- <label>
-  Buscar búho por<br />
-<input type="search" #input>
-</label> -->
-
-<hr>
 
 <section class="list">
   <ng-container *ngFor="let item of items; index as i">
-    <article class="list__item">
-      <p>id: {{ item.id }}</p>
-      <p>categoría: {{ item.category }}</p>
-      <p>comentario: {{ item.comment }}</p>
-      <p>fecha: {{ item.date }}</p>
-      <p>lugar: {{ item.location }}</p>
-      <p>persona: {{ item.person }}</p>
-    </article>
+    <app-owl [item]="item"></app-owl>
   </ng-container>
+  <p *ngIf="noResults">No hay coincidencias</p>
 </section>

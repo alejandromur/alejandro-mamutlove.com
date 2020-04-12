@@ -7,39 +7,4 @@
 	display: grid;
 	grid-gap: 1rem;
 	grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-
-	&__item {
-		border-radius: 0.5rem;
-		overflow: hidden;
-		background-color: $white-color;
-		transition: transform 300ms;
-
-		&:hover {
-			transform: translate3d(0, -0.25rem, 0);
-		}
-	}
-}
-
-.item {
-	display: block;
-	text-decoration: none;
-
-	&__image {
-		display: block;
-		width: 100%;
-		object-fit: cover;
-	}
-
-	&__content {
-		padding: 1rem;
-	}
-
-	&__heading {
-	}
-
-	&__subheading {
-	}
-
-	&__text {
-	}
 }

@@ -31,8 +31,4 @@ export class ListComponent implements OnInit {
         }));
       });
   }
-
-  onGetDetails(owl: any) {
-    this.firebaseService.selectedOwl = Object.assign({}, owl);
-  }
 }

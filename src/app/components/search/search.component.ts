@@ -28,8 +28,10 @@ export class SearchComponent implements OnInit, AfterViewInit {
     filter: ["id"],
   });
 
+  noResults = false;
+
   rawItems: any;
-  items: any;
+  items: any = [];
 
   constructor(
     public fb: FormBuilder,
@@ -77,6 +79,12 @@ export class SearchComponent implements OnInit, AfterViewInit {
             }
             return item[channel].includes(query);
           });
+
+          if (!this.items.length) {
+            this.noResults = true;
+          } else {
+            this.noResults = false;
+          }
         })
       )
       .subscribe();
