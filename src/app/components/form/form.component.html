@@ -1,32 +1,68 @@
 <form [formGroup]="form" class="form" (ngSubmit)="onSubmit($event)" novalidate>
   <input formControlName="key" type="hidden" />
-  <div class="form__control">
-    <label for="id">Número de la colección</label>
-    <input formControlName="id" type="number" id="id" />
+
+  <div class="form-group">
+    <div class="form-field">
+      <label for="id">Número de la colección</label>
+      <input formControlName="id" type="number" id="id" />
+      <small *ngIf="(form.controls.id.errors?.required || form.controls.id.errors?.pattern) && (form.controls.id.dirty || form.controls.id.touched)">
+        Indica el número de la colección que va a ocupar
+      </small>
+    </div>
+    <div class="form-field">
+      <label for="person">Persona</label>
+      <input formControlName="person" type="text" id="person" />
+      <small *ngIf="(form.controls.person.errors?.required || form.controls.person.errors?.pattern) && (form.controls.person.dirty || form.controls.person.touched)">
+        Indica quién lo compró o te lo regaló
+      </small>
+    </div>
   </div>
-  <div class="form__control">
-    <label for="person">Persona</label>
-    <input formControlName="person" type="text" id="person" />
+
+  <div class="form-group">
+    <div class="form-field form-field--full">
+      <label for="path">Imagen</label>
+      <app-file-upload [uploadFile]="form"></app-file-upload>
+    </div>
   </div>
-  <div class="form__control">
-    <label for="date">Fecha</label>
-    <input formControlName="date" type="date" id="date" />
+
+  <div class="form-group">
+    <div class="form-field">
+      <label for="date">Fecha</label>
+      <input formControlName="date" type="date" id="date" />
+      <small *ngIf="(form.controls.date.errors?.required || form.controls.date.errors?.pattern) && (form.controls.date.dirty || form.controls.date.touched)">
+        Indica una fecha
+      </small>
+    </div>
+    <div class="form-field">
+      <label for="location">Lugar</label>
+      <input formControlName="location" type="text" id="location" />
+      <small *ngIf="(form.controls.location.errors?.required || form.controls.location.errors?.pattern) && (form.controls.location.dirty || form.controls.location.touched)">
+        Indica una ubicación
+      </small>
+    </div>
+    <div class="form-field">
+      <label for="category">Categoría</label>
+      <input formControlName="category" type="text" id="category" />
+      <small *ngIf="(form.controls.category.errors?.required || form.controls.category.errors?.pattern) && (form.controls.category.dirty || form.controls.category.touched)">
+        Indica una categoría
+      </small>
+    </div>
   </div>
-  <div class="form__control">
-    <label for="location">Lugar</label>
-    <input formControlName="location" type="text" id="location" />
+  <div class="form-group">
+    <div class="form-field form-field--full">
+      <label for="comment">Comentario</label>
+      <textarea formControlName="comment" id="comment"></textarea>
+      <small *ngIf="(form.controls.comment.errors?.required || form.controls.comment.errors?.pattern) && (form.controls.comment.dirty || form.controls.comment.touched)">
+        Añade un comentario
+      </small>
+    </div>
   </div>
-  <div class="form__control">
-    <label for="category">Categoría</label>
-    <input formControlName="category" type="text" id="category" />
+  <div class="form-group">
+    <div class="form-field">
+      <button [disabled]="!form.valid">
+        Guardar
+      </button>
+    </div>
   </div>
-  <div class="form__control">
-    <label for="comment">Comentario</label>
-    <textarea formControlName="comment" id="comment"></textarea>
-  </div>
-  <div class="form__control">
-    <button [disabled]="!form.valid">
-      Guardar
-    </button>
-  </div>
+
 </form>

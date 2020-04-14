@@ -18,6 +18,9 @@ import { ListComponent } from "./components/list/list.component";
 import { SearchComponent } from "./components/search/search.component";
 import { FormComponent } from "./components/form/form.component";
 import { DetailsComponent } from "./components/details/details.component";
+import { FileUploadComponent } from './components/shared/file-upload/file-upload.component';
+import { DropZoneDirective } from './directives/drop-zone.directive';
+import { FileSizePipe } from './pipes/file-size.pipe';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,9 @@ import { DetailsComponent } from "./components/details/details.component";
     SearchComponent,
     FormComponent,
     DetailsComponent,
+    FileUploadComponent,
+    DropZoneDirective,
+    FileSizePipe,
   ],
   imports: [
     BrowserModule,

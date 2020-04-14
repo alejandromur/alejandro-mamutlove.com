@@ -42,6 +42,9 @@ export class FormComponent implements OnInit {
           this.firebaseService.selectedOwl.id,
           Validators.required
         ),
+        image: new FormControl(
+          this.firebaseService.selectedOwl.image
+        ),
         person: new FormControl(
           this.firebaseService.selectedOwl.person,
           Validators.required
@@ -67,6 +70,7 @@ export class FormComponent implements OnInit {
       this.form = new FormGroup({
         key: new FormControl(null),
         id: new FormControl("", Validators.required),
+        image: new FormControl(""),
         person: new FormControl("", Validators.required),
         date: new FormControl("", Validators.required),
         location: new FormControl("", Validators.required),

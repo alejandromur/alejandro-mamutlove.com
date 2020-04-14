@@ -1,0 +1,44 @@
+@import 'variables';
+
+.file-upload-wrapper {
+
+}
+
+.file-upload-result {
+
+}
+
+.dropzone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1rem;
+  border: 0.125rem dashed var(--secondary-lighten-color);
+  border-radius: 0.25rem;
+  background: var(--white-color);
+
+  &.hovering {
+    border: 0.125rem solid var(--secondary-lighten-color);
+    color: var(--gray-color) !important;
+  }
+}
+
+.progress-wrapper {
+  display: flex;
+  padding: 1rem 0;
+}
+
+progress::-webkit-progress-value {
+  transition: width 300ms ease-in-out;
+}
+
+.progress {
+  flex: 1;
+  margin: 0 0.5rem;
+}
+
+.image-preview {
+  max-width: 20rem;
+  margin-bottom: 1rem;
+}

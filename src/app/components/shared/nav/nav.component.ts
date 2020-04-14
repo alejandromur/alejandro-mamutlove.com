@@ -9,6 +9,11 @@ const MENU: MenuInterface[] = [
     link: "/listado",
   },
   {
+    icon: "favs",
+    text: "Favoritos",
+    link: "/favoritos",
+  },
+  {
     icon: "search",
     text: "Buscar",
     link: "/buscar",
@@ -17,11 +22,6 @@ const MENU: MenuInterface[] = [
     icon: "edit",
     text: "Nuevo",
     link: "/nuevo",
-  },
-  {
-    icon: "favs",
-    text: "Favoritos",
-    link: "/favoritos",
   },
 ];
 

@@ -1,0 +1,31 @@
+<div class="dropzone" dropZone (hovered)="toggleHover($event)" (dropped)="startUpload($event)" [class.hovering]="isHovering">
+
+  <p>Arrastra un archivo o haz clic en el botón</p>
+
+  <div class="file">
+    <label class="file-label">
+      <input class="file-input" type="file" (change)="startUpload($event.target.files)">
+    </label>
+  </div>
+</div>
+
+<div class="progress-wrapper" *ngIf="percentage | async as pct">
+  <span>0%</span>
+  <progress class="progress is-info" [value]="pct" max="100"></progress>
+  <span>{{ pct | number }}%</span>
+</div>
+
+<div class="file-upload-result" *ngIf="snapshot | async as snap">
+  <!-- {{ snap.bytesTransferred | fileSize }} of {{ snap.totalBytes | fileSize }} -->
+  <div *ngIf="downloadURL | async as url" [formGroup]="uploadFile">
+    <input type="hidden" name="path" id="path" [ngModel]="url" formControlName="image">
+    <img class="image-preview" [src]="url">
+    <span>{{ snap.totalBytes | fileSize }}</span>
+    <!-- <a class="button-primary" [href]="url" target="_blank" rel="noopener">Descargar</a> -->
+  </div>
+  <!--
+  <button class="button-primary" (click)="task.pause()" class="button is-warning" [disabled]="!isActive(snap)">Parar</button>
+  <button class="button-secondary" (click)="task.cancel()" class="button is-danger" [disabled]="!isActive(snap)">Cancelar</button>
+  <button class="button-tertiary" (click)="task.resume()" class="button is-info" [disabled]="!(snap?.state === 'paused')">Reanudar</button>
+-->
+</div>

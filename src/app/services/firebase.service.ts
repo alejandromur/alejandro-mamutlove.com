@@ -18,6 +18,7 @@ export class FirebaseService {
   create(value: any) {
     return this.firebase.list("owls").push({
       id: value.id,
+      image: value.image,
       person: value.person,
       date: value.date,
       location: value.location,
