@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'buttons';
 
 %input-style {
 	width: 100%;
@@ -129,4 +130,8 @@ input {
 			}
 		}
 	}
+}
+
+.btn {
+  @include button;
 }
