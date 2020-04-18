@@ -21,6 +21,7 @@ import { DetailsComponent } from "./components/details/details.component";
 import { FileUploadComponent } from './components/shared/file-upload/file-upload.component';
 import { DropZoneDirective } from './directives/drop-zone.directive';
 import { FileSizePipe } from './pipes/file-size.pipe';
+import { HeroComponent } from './components/hero/hero.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { FileSizePipe } from './pipes/file-size.pipe';
     FileUploadComponent,
     DropZoneDirective,
     FileSizePipe,
+    HeroComponent,
   ],
   imports: [
     BrowserModule,

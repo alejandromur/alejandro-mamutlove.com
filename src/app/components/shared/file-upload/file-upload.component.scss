@@ -14,12 +14,12 @@
   justify-content: center;
   flex-direction: column;
   padding: 1rem;
-  border: 0.125rem dashed var(--secondary-lighten-color);
+  border: 0.125rem dashed var(--primary-color);
   border-radius: 0.25rem;
   background: var(--white-color);
 
   &.hovering {
-    border: 0.125rem solid var(--secondary-lighten-color);
+    border: 0.125rem solid var(--primary-color);
     color: var(--gray-color) !important;
   }
 }

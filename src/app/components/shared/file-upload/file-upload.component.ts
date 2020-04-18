@@ -32,9 +32,7 @@ export class FileUploadComponent implements OnInit {
     private db: AngularFirestore
   ) {}
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   toggleHover(event: boolean) {
     this.isHovering = event;
