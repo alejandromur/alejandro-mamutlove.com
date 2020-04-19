@@ -17,5 +17,21 @@
         <span>{{ menuItem.text }}</span></a
       >
     </li>
+    <li *ngIf="!(authService.user | async)">
+      <a [routerLink]="'/login'" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" class="nav__item__link">
+        <svg class="nav__item__icon">
+          <use xlink:href="assets/images/sprite.svg#login" />
+        </svg>
+        <span>Entrar</span>
+      </a>
+    </li>
+    <li *ngIf="authService.user | async">
+      <button class="nav__item__link" (click)="onLogout()">
+        <svg class="nav__item__icon">
+          <use xlink:href="assets/images/sprite.svg#login" />
+        </svg>
+        <span>Salir</span>
+      </button>
+    </li>
   </ul>
 </nav>
