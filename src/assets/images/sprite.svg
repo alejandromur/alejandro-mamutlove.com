@@ -1,4 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg">
+  <symbol id="login" viewBox="0 0 24 24">
+    <title>Entrar</title>
+    <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M15 3h6v18h-6M10 17l5-5-5-5M13.8 12H3"/>
+    </g>
+  </symbol>
   <symbol id="list" viewBox="0 0 24 24">
     <title>Listado</title>
     <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
