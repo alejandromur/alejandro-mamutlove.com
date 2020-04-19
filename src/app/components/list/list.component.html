@@ -1,5 +1,7 @@
+<app-search (query)="onSearch($event)"></app-search>
 <section class="list">
   <ng-container *ngFor="let item of items; index as i">
     <app-owl [item]="item"></app-owl>
   </ng-container>
+  <p *ngIf="noResults">No hay coincidencias</p>
 </section>
