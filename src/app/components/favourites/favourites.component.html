@@ -1,0 +1,6 @@
+<section class="list">
+  <ng-container *ngFor="let item of items; index as i">
+    <app-item [item]="item"></app-item>
+  </ng-container>
+  <p *ngIf="noResults">Todavía no has guardado ninguno como favorito</p>
+</section>
