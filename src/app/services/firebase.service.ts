@@ -1,14 +1,13 @@
-import { Injectable } from "@angular/core";
-import { AngularFirestore } from "@angular/fire/firestore";
-import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
-import { OwlInterface } from "../types/owl-interface";
+import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { ItemInterface } from '../types/item-interface';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class FirebaseService {
-  owlsList: AngularFireList<any>;
-  selectedOwl: OwlInterface = new OwlInterface();
+  selectedItem: ItemInterface = new ItemInterface();
 
   constructor(
     private firebase: AngularFireDatabase,
@@ -16,7 +15,7 @@ export class FirebaseService {
   ) {}
 
   create(value: any) {
-    return this.firebase.list("owls").push({
+    return this.firebase.list('owls').push({
       id: value.id,
       image: value.image,
       person: value.person,
@@ -24,26 +23,30 @@ export class FirebaseService {
       location: value.location,
       category: value.category,
       comment: value.comment,
-    } as OwlInterface);
+    } as ItemInterface);
   }
 
-  getSelectedOwl() {
-    return this.selectedOwl;
+  getSelectedItem() {
+    return this.selectedItem;
   }
 
   getList() {
-    return this.firebase.list("owls", (ref) => ref.orderByChild("id"));
+    return this.firebase.list('owls', (ref) => ref.orderByChild('id'));
   }
 
   getItem(key: string) {
-    return this.firebase.object("owls/" + key);
+    return this.firebase.object('owls/' + key);
   }
 
-  edit(item: OwlInterface) {
-    return this.firebase.list("owls").update(item.key, item);
+  edit(item: ItemInterface) {
+    return this.firebase.list('owls').update(item.key, item);
+  }
+
+  update(key: string, favourite: boolean) {
+    return this.firebase.list('owls').update(key, { favourite });
   }
 
   delete(key: string) {
-    return this.firebase.object("owls/" + key).remove();
+    return this.firebase.object('owls/' + key).remove();
   }
 }
