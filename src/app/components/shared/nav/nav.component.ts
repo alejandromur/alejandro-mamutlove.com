@@ -40,7 +40,7 @@ export class NavComponent implements OnInit {
 
   ngOnInit() {
     this.authService.user.subscribe((user: any) => {
-      // console.log(user);
+      console.log(user);
       this.user = user;
       this.menu = this.user ? this.PRIVATE_MENU : this.PUBLIC_MENU;
     });
@@ -51,8 +51,10 @@ export class NavComponent implements OnInit {
   }
 
   onLogout(): void {
-    this.authService.logout();
-    this.menu = this.PUBLIC_MENU;
-    this.router.navigate(['/login']);
+    this.authService.logout().then(res => {
+      // console.log(res);
+      this.menu = this.PUBLIC_MENU;
+      this.router.navigate(['/login']);
+    });
   }
 }

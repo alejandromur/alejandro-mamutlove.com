@@ -1,37 +1,39 @@
-<a routerLink="/">
-  #búhos
-</a>
+<section class="wrapper">
+  <a routerLink="/">
+    #búhos
+  </a>
 
-<nav class="nav">
-  <ul class="nav__list">
-    <li *ngFor="let menuItem of menu; index as i" class="nav__item">
-      <a
-        [routerLink]="menuItem.link"
-        routerLinkActive="is-active"
-        [routerLinkActiveOptions]="{ exact: true }"
-        class="nav__item__link"
+  <nav class="nav">
+    <ul class="nav__list">
+      <li *ngFor="let menuItem of menu; index as i" class="nav__item">
+        <a
+          [routerLink]="menuItem.link"
+          routerLinkActive="is-active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="nav__item__link"
+          >
+          <svg class="nav__item__icon">
+            <use [attr.xlink:href]="addIconFromSprite(menuItem.icon)" />
+          </svg>
+          <span>{{ menuItem.text }}</span></a
         >
-        <svg class="nav__item__icon">
-          <use [attr.xlink:href]="addIconFromSprite(menuItem.icon)" />
-        </svg>
-        <span>{{ menuItem.text }}</span></a
-      >
-    </li>
-    <li *ngIf="!(authService.user | async)">
-      <a [routerLink]="'/login'" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" class="nav__item__link">
-        <svg class="nav__item__icon">
-          <use xlink:href="assets/images/sprite.svg#login" />
-        </svg>
-        <span>Entrar</span>
-      </a>
-    </li>
-    <li *ngIf="authService.user | async">
-      <button class="nav__item__link" (click)="onLogout()">
-        <svg class="nav__item__icon">
-          <use xlink:href="assets/images/sprite.svg#login" />
-        </svg>
-        <span>Salir</span>
-      </button>
-    </li>
-  </ul>
-</nav>
+      </li>
+      <li *ngIf="!(authService.user | async)">
+        <a [routerLink]="'/login'" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" class="nav__item__link">
+          <svg class="nav__item__icon">
+            <use xlink:href="assets/images/sprite.svg#login" />
+          </svg>
+          <span>Entrar</span>
+        </a>
+      </li>
+      <li *ngIf="authService.user | async">
+        <button class="nav__item__link" (click)="onLogout()">
+          <svg class="nav__item__icon">
+            <use xlink:href="assets/images/sprite.svg#login" />
+          </svg>
+          <span>Salir</span>
+        </button>
+      </li>
+    </ul>
+  </nav>
+</section>

@@ -1,18 +1,21 @@
 @import "variables";
 
 :host {
-	display: flex;
-	align-items: center;
-	width: 100%;
+  width: 100%;
 	padding: 0 1rem;
 	background-color: var(--primary-color);
-	// border-bottom: 2px solid var(--primary-darken-color);
-	position: fixed;
-	z-index: 1;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 70rem;
+  margin: 0 auto;
 }
 
 a {
-	color: $white-color;
+	color: $dark-pink;
 	text-decoration: none;
 	transition: all 250ms;
 }
@@ -36,7 +39,7 @@ a {
       border-radius: 0.25rem;
       background-color: transparent;
 			position: relative;
-      color: rgba($white-color, 0.7);
+      color: $dark-pink;
       cursor: pointer;
 
 			@media (min-width: $mobile) {
@@ -65,16 +68,16 @@ a {
 
 			&:hover {
 				&::before {
-					background-color: rgba($white-color, 0.7);
+					background-color: $dark-pink;
 				}
 			}
 
 			// STATES
 			&.is-active {
-				color: $white-color;
+				color: $dark-pink;
 
 				&::before {
-					background-color: $white-color;
+					background-color: $dark-pink;
 				}
 			}
 		}
