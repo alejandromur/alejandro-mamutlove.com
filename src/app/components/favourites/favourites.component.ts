@@ -7,7 +7,7 @@ import { FirebaseService } from 'src/app/services/firebase.service';
   styleUrls: ['./favourites.component.scss'],
 })
 export class FavouritesComponent implements OnInit {
-  noResults = false;
+  noResults = true;
   rawItems: any = [];
   items: any = [];
 
@@ -27,6 +27,7 @@ export class FavouritesComponent implements OnInit {
           ...c.payload.val(),
         })).filter((c: any) => c.favourite);
         this.items = [...this.rawItems];
+        this.noResults = this.items.length ? false : true;
       });
   }
 }
