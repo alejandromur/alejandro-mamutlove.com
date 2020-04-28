@@ -1,68 +1,108 @@
-<form [formGroup]="form" class="form" (ngSubmit)="onSubmit($event)" novalidate>
-  <input formControlName="key" type="hidden" />
+<app-heading [heading]="'Añadir nuevo libro'"></app-heading>
 
-  <div class="form-group">
-    <div class="form-field">
-      <label for="id">Número de la colección</label>
-      <input formControlName="id" type="number" id="id" />
-      <small *ngIf="(form.controls.id.errors?.required || form.controls.id.errors?.pattern) && (form.controls.id.dirty || form.controls.id.touched)">
-        Indica el número de la colección que va a ocupar
-      </small>
-    </div>
-    <div class="form-field">
-      <label for="person">Persona</label>
-      <input formControlName="person" type="text" id="person" />
-      <small *ngIf="(form.controls.person.errors?.required || form.controls.person.errors?.pattern) && (form.controls.person.dirty || form.controls.person.touched)">
-        Indica quién lo compró o te lo regaló
-      </small>
-    </div>
-  </div>
+<div class="wrapper">
+  <form [formGroup]="form" class="form" (ngSubmit)="onSubmit($event)" novalidate>
+    <input formControlName="key" type="hidden" />
 
-  <div class="form-group">
-    <div class="form-field form-field--full">
-      <label for="path">Imagen</label>
-      <app-file-upload [uploadFile]="form"></app-file-upload>
-    </div>
-  </div>
+    <div class="form__row">
+      <div class="form__col">
+        <div class="form-field fb-100">
+          <label for="id">Número de la colección</label>
+          <input formControlName="id" type="number" id="id" />
+          <small *ngIf="(form.controls.id.errors?.required || form.controls.id.errors?.pattern) && (form.controls.id.dirty || form.controls.id.touched)">
+            Indica el número de la colección que va a ocupar
+          </small>
+        </div>
+        <div class="form-field form-field--full">
+          <label for="path">Imagen</label>
+          <app-file-upload [uploadFile]="form"></app-file-upload>
+        </div>
+      </div>
 
-  <div class="form-group">
-    <div class="form-field">
-      <label for="date">Fecha</label>
-      <input formControlName="date" type="date" id="date" />
-      <small *ngIf="(form.controls.date.errors?.required || form.controls.date.errors?.pattern) && (form.controls.date.dirty || form.controls.date.touched)">
-        Indica una fecha
-      </small>
+      <div class="form__col">
+        <div class="form-field">
+          <label for="author">Autor</label>
+          <input formControlName="author" type="text" id="author" />
+          <small *ngIf="(form.controls.author.errors?.required || form.controls.author.errors?.pattern) && (form.controls.author.dirty || form.controls.author.touched)">
+            Indica el autor/a
+          </small>
+        </div>
+        <div class="form-field">
+          <label for="author">Título</label>
+          <input formControlName="title" type="text" id="title" />
+          <small *ngIf="(form.controls.title.errors?.required || form.controls.title.errors?.pattern) && (form.controls.title.dirty || form.controls.title.touched)">
+            Indica el título
+          </small>
+        </div>
+        <div class="form-field">
+          <label for="category">Género</label>
+          <input formControlName="category" type="text" id="category" />
+          <small *ngIf="(form.controls.category.errors?.required || form.controls.category.errors?.pattern) && (form.controls.category.dirty || form.controls.category.touched)">
+            Indica un género
+          </small>
+        </div>
+        <div class="form-group">
+          <div class="form-field">
+            <label for="rating">Valoración</label>
+            <select name="rating" class="form-select" id="filter" formControlName="rating">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+            <small *ngIf="(form.controls.rating.errors?.required || form.controls.rating.errors?.pattern) && (form.controls.rating.dirty || form.controls.rating.touched)">
+              Indica una valoración
+            </small>
+          </div>
+          <div class="form-field">
+            <label for="favourite">Favorito</label>
+            <select name="favourite" class="form-select" id="filter" formControlName="favourite">
+              <option value="0">No</option>
+              <option value="1">Sí</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="form__col">
+        <div class="form-group">
+          <div class="form-field form-field--60">
+            <label for="isbn">ISBN</label>
+            <input formControlName="isbn" type="text" id="isbn" />
+          </div>
+          <div class="form-field form-field--40">
+            <label for="year">Año</label>
+            <input formControlName="year" type="number" id="year" />
+            <small *ngIf="(form.controls.year.errors?.required || form.controls.year.errors?.pattern) && (form.controls.year.dirty || form.controls.year.touched)">
+              Indica el año de publicación
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-field form-field--60">
+            <label for="editorial">Editorial</label>
+            <input formControlName="editorial" type="text" id="editorial" />
+          </div>
+          <div class="form-field form-field--40">
+            <label for="pages">Núm. Páginas</label>
+            <input formControlName="pages" type="number" id="pages" />
+          </div>
+        </div>
+        <div class="form-field form-field--full">
+          <label for="comment">Comentario</label>
+          <textarea formControlName="comment" id="comment"></textarea>
+          <small *ngIf="(form.controls.comment.errors?.required || form.controls.comment.errors?.pattern) && (form.controls.comment.dirty || form.controls.comment.touched)">
+            Añade un comentario
+          </small>
+        </div>
+      </div>
     </div>
-    <div class="form-field">
-      <label for="location">Lugar</label>
-      <input formControlName="location" type="text" id="location" />
-      <small *ngIf="(form.controls.location.errors?.required || form.controls.location.errors?.pattern) && (form.controls.location.dirty || form.controls.location.touched)">
-        Indica una ubicación
-      </small>
-    </div>
-    <div class="form-field">
-      <label for="category">Categoría</label>
-      <input formControlName="category" type="text" id="category" />
-      <small *ngIf="(form.controls.category.errors?.required || form.controls.category.errors?.pattern) && (form.controls.category.dirty || form.controls.category.touched)">
-        Indica una categoría
-      </small>
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="form-field form-field--full">
-      <label for="comment">Comentario</label>
-      <textarea formControlName="comment" id="comment"></textarea>
-      <small *ngIf="(form.controls.comment.errors?.required || form.controls.comment.errors?.pattern) && (form.controls.comment.dirty || form.controls.comment.touched)">
-        Añade un comentario
-      </small>
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="form-field">
+
+    <div class="form__row justify-end">
       <button class="btn" [disabled]="!form.valid">
         Guardar
       </button>
     </div>
-  </div>
-
-</form>
+  </form>
+</div>
