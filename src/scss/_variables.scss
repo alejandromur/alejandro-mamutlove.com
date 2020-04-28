@@ -12,9 +12,33 @@ $black: 900;
 
 // COLOURS
 // -------------------
-$dev: #f06;
-
 $primary-color: #004bb1;
+
+$dark-pink-hover: #b13c5d;
+$dark-pink: #c76a86;
+$brown-color: #6d483a;
+
+// THEMES
+$soft-salmon: #FF7795;
+$dark-yellow: #FEDBBB;
+$salmon: #E5919A;
+$highlight-brown: #FDEADD;
+$light-brown: #BC8667;
+$grey: #C3B3B3;
+$dark-brown: #4B2E29;
+$darke-grey: #8D7D82;
+
+$light-grey: #F9F7F9;
+$dark-soft-pink:#CB7295;
+$soft-pink: #DF97B0;
+$dark-hot-pink: #E24E69;
+$light-purple: #C6B0CC;
+$dark-purple: #231F45;
+$blue: #3F92CD;
+$dark-blue: #2C5ADB;
+
+$yellow: #EED449;
+
 
 $default-color: #a5a6aa;
 $white-color: #ffffff;
@@ -35,5 +59,6 @@ $success-color: rgb(82, 216, 21);
 // BREAKPOINTS
 // -------------------
 $mobile: 23.75em;
+$tablet-small: 33.125em;
 $tablet: 42.5em;
 $desktop: 75em;

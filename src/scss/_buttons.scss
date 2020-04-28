@@ -1,13 +1,13 @@
 @import 'variables';
 
-@mixin button($color: $white-color) {
+@mixin button($color: $white-color, $bgcolor: var(--primary-color)) {
   display: inline-block;
-  padding: 1rem 2rem;
+  padding: 0.75rem 2.5rem;
   font-size: 1rem;
   color: $color;
   border: 0;
-  border-radius: 0.375rem;
-  background-color: var(--primary-color);
+  border-radius: 1.5rem;
+  background-color: $bgcolor;
   transition: background-color 250ms;
   cursor: pointer;
 
@@ -16,6 +16,10 @@
   }
 
   &:hover:not([disabled]) {
-    background-color: var(--primary-lighten-color);
+    background-color: var(--brown-200);
   }
+}
+
+.btn {
+  @include button($white-color, var(--brown-100));
 }

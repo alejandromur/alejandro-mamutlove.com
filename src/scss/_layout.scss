@@ -1,0 +1,32 @@
+// Screen reader only utility
+.sr-only {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  left: -9999px;
+  top: -9999px;
+}
+
+%wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 70rem;
+  margin: 0 auto;
+}
+
+.wrapper {
+  @extend %wrapper;
+}
+
+.list {
+  width: 100%;
+  padding: 0 1rem;
+  margin: 3rem 0;
+
+  &__body {
+    display: grid;
+    grid-gap: 4rem 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+    width: 100%;
+  }
+}

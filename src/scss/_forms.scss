@@ -1,0 +1,181 @@
+@import 'variables';
+
+%input-style {
+	width: 100%;
+  max-width: 100%;
+  height: 2.625rem;
+	padding: 0.5rem;
+	font-size: 1rem;
+	color: $text-color;
+	border: 0;
+  border-radius: 0.375rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+	background: $white-color;
+	transition: border-color 200ms ease-in;
+}
+
+%select-style {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 2.625rem;
+  padding: 0.5rem 1.25rem;
+  margin: 0 0 1.5rem;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: var(--brown-100);
+  border: 0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+  border-radius: 0.375rem;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: $white-color;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOSIgaGVpZ2h0PSIxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PGRlZnM+PHBhdGggZD0iTTMuOTczIDEzLjE2Nkw2LjczOSAxMC40bDEuMjA3IDEuMjI3TDMuOTczIDE1LjYgMCAxMS42MjcgMS4yMDYgMTAuNGwyLjc2NyAyLjc2NnptMC0xMC43MzJMMS4yMDYgNS4yIDAgMy45NzMgMy45NzMgMGwzLjk3MyAzLjk3M0w2LjczOSA1LjIgMy45NzMgMi40MzR6IiBpZD0iYSIvPjwvZGVmcz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSguMykiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PG1hc2sgaWQ9ImIiIGZpbGw9IiNmZmYiPjx1c2UgeGxpbms6aHJlZj0iI2EiLz48L21hc2s+PHVzZSBmaWxsPSIjMTYxNjE2IiBmaWxsLXJ1bGU9Im5vbnplcm8iIHhsaW5rOmhyZWY9IiNhIi8+PGcgbWFzaz0idXJsKCNiKSIgZmlsbD0iIzMwNTdCMyI+PHBhdGggZD0iTS05LjEtNi41aDMyLjVWMjZILTkuMXoiLz48L2c+PC9nPjwvc3ZnPg==);
+  background-repeat: no-repeat;
+  background-position: right .7em top 50%;
+  background-size: .65em auto;
+
+  @media (min-width: $tablet-small) {
+    margin-right: 1.5rem;
+    margin-bottom: 0;
+  }
+
+  &::-ms-expand {
+    display: none;
+  }
+
+  // &:hover {
+  //   border-color: #888;
+  // }
+
+  &:focus {
+    border-color: #aaa;
+    box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+    color: #222;
+    outline: none;
+  }
+
+  option {
+    font-weight: normal;
+  }
+}
+
+fieldset {
+	width: 100%;
+}
+
+label {
+	display: block;
+  margin-bottom: 0.25rem;
+  font-family: var(--serif-1);
+	font-size: 1rem;
+	color: $text-color;
+}
+
+textarea {
+  display: block;
+  height: 9.125rem;
+}
+
+textarea,
+input {
+	@extend %input-style;
+}
+
+select {
+  @extend %select-style;
+}
+
+.form {
+
+	&-group {
+		display: flex;
+		flex-wrap: wrap;
+
+		@media (min-width: $tablet) {
+			justify-content: space-between;
+		}
+	}
+
+	&-field {
+		flex: 1 1 100%;
+		display: block;
+		padding-bottom: 1.25rem;
+		margin-bottom: 1rem;
+		position: relative;
+
+		@media (min-width: $tablet) {
+			flex: 0 1 calc(50% - 0.5rem);
+		}
+
+		// STATE ERROR
+		.ng-invalid.ng-touched:not(form) {
+			border: 1px solid $error-color;
+			box-shadow: 0 0 0 1px $error-color;
+
+			.file-upload-result > & {
+				border: 0;
+			}
+		}
+
+		&--full {
+			@media (min-width: $tablet) {
+				flex: 1 1 100%;
+			}
+		}
+		&--60 {
+			@media (min-width: $tablet) {
+				flex: 0 1 calc(60% - 0.5rem);
+			}
+		}
+		&--40 {
+			@media (min-width: $tablet) {
+				flex: 0 1 calc(40% - 0.5rem);
+			}
+		}
+
+		small {
+			color: $error-color;
+			font-style: italic;
+			font-size: 0.75rem;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+		}
+	}
+
+	&-fieldset {
+		position: relative;
+
+		.button-primary {
+			position: absolute;
+			top: -0.625rem;
+			right: 1.5rem;
+		}
+
+		// Si tiene una accion mediante un boton cambia
+		// la disposicion de los campos en el layout
+		&.has-action {
+			.button-tertiary {
+				height: 2.5rem;
+				transform: translate3d(0, 1.625rem, 0);
+
+				> span {
+					display: inline-block;
+					transform: rotate(45deg);
+				}
+			}
+
+			.form-group {
+				align-items: flex-start;
+			}
+
+			.form-field {
+				flex: 1;
+				padding-right: 1rem;
+			}
+		}
+	}
+}
