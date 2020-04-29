@@ -1,0 +1,7 @@
+<ul class="rating">
+  <li *ngFor="let star of stars; let idx = index" class="rating__item" [class.is-active]="idx < rating">
+    <svg>
+      <use xlink:href="assets/images/sprite.svg#star" />
+    </svg>
+  </li>
+</ul>
